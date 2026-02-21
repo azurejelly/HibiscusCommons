@@ -175,7 +175,7 @@ public class NMSUtils implements me.lojosho.hibiscuscommons.nms.NMSUtils {
         progress.getRemainingCriteria().forEach(criteria -> nmsPlayer.getAdvancements().award(advancementHolder, criteria));
 
 
-        Bukkit.getScheduler().runTaskLater(HibiscusCommonsPlugin.getInstance(), () -> {
+        player.getScheduler().runDelayed(HibiscusCommonsPlugin.getInstance(), (t) -> {
             progress.getRemainingCriteria().forEach(criteria -> nmsPlayer.getAdvancements().revoke(advancementHolder, criteria));
             MinecraftServer.getServer().getAdvancements().tree().remove(Set.of(key));
 
@@ -189,6 +189,6 @@ public class NMSUtils implements me.lojosho.hibiscuscommons.nms.NMSUtils {
             );
 
             nmsPlayer.connection.send(removePacket);
-        }, 2L);
+        }, null, 2L);
     }
 }

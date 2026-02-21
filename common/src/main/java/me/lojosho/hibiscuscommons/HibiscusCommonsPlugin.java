@@ -67,9 +67,6 @@ public final class HibiscusCommonsPlugin extends HibiscusPlugin {
      */
     @ApiStatus.Internal
     public boolean checkFolia() {
-        if (ServerUtils.hasClass("io.papermc.paper.threadedregions.RegionizedServer")) {
-            return true;
-        }
-        return false;
+        return ServerUtils.hasClass("io.papermc.paper.threadedregions.RegionizedServer");
     }
 }

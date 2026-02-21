@@ -8,7 +8,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 public class PlayerConnectionEvent implements Listener {
 
-    @EventHandler(ignoreCancelled = false, priority = EventPriority.LOW)
+    @EventHandler(priority = EventPriority.LOW)
     public void onPlayerJoin(PlayerJoinEvent event) {
         NMSHandlers.getHandler().getUtilHandler().handleChannelOpen(event.getPlayer());
     }
